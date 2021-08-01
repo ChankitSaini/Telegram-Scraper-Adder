@@ -1,12 +1,3 @@
-#!/bin/env python3
-# code by : Termux Professor
-
-"""
-
-you can re run setup.py 
-if you have added some wrong value
-
-"""
 import os, sys
 import configparser
 re="\033[1;31m"
@@ -20,8 +11,8 @@ def banner():
 	{re}╚═╝{cy}└─┘ ┴ └─┘┴
 	
 	           Version : 1.01
-	{re}Subscribe Termux Professor on Youtube
-	{cy}www.youtube.com/c/TermuxProfessorYT
+	{re}Thanks to me
+	{cy}www.t.me/c/ChankitSaini
 	""")
 banner()
 print(gr+"[+] Installing requierments ...")
@@ -43,4 +34,4 @@ setup.close()
 print(gr+"[+] setup complete !")
 print(gr+"[+] now you can run any tool !")
 print(gr+"[+] make sure to read docs 4 installation & api setup")
-print(gr+"[+] https://github.com/termuxprofessor/TeleGram-Scraper-Adder/blob/master/README.md")
+print(gr+"[+] https://github.com/NeuroticCoders/Telegram-Scraper-Adder/blob/master/README.md")
