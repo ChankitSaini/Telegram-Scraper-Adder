@@ -4,11 +4,11 @@
 
 <p align="center"><img src="https://img.shields.io/badge/Version-1.01-brightgreen"></p>
 <p align="center">
-  <a href="https://github.com/termuxprofessor">
+  <a href="https://github.com/ChankitSaini">
     <img src="https://img.shields.io/github/followers/th3unkn0n?label=Follow&style=social">
   </a>
-  <a href="https://github.com/termuxprofessor/Telegram-Scraper-Adder">
-    <img src="https://img.shields.io/github/stars/th3unkn0n/TeleGram-Group-Scraper?style=social">
+  <a href="https://github.com/ChankitSaini/Telegram-Scraper-Adder">
+    <img src="https://img.shields.io/github/stars/ChankitSaini/TeleGram-Group-Scraper?style=social">
   </a>
 </p>
 <p align="center">
@@ -34,7 +34,7 @@
 
 `$ pkg install git`
 
-`$ git clone https://github.com/termuxprofessor/TeleGram-Scraper-Adder`
+`$ git clone https://github.com/ChankitSaini/TeleGram-Scraper-Adder`
 
 `$ cd Telegram-Scraper-Adder`
 
@@ -42,25 +42,10 @@
 
 `$ python setup.py`
 
-* To Scarpe members from group.
+* To Scrape members from group.
 
 `$ python scraper.py`
 
-* Add Scarped members to your group. 
+* Add Scraped members to your group. 
 
 `$ python adder.py`
-
-## • Watch Video Tutorial From Below
-* https://youtu.be/hNztfzMMPOc
----
-
-<p align="center">
-  Follow Me On
-</p>
-<p align="center">
-  <a href="https://www.youtube.com/c/TermuxProfessorYT">
-    <img src="https://github.com/th3unkn0n/extra/blob/master/.img/yt.png" width="40" height="40">
-  </a>
-  <a href="https://www.instagram.com/termuxprofessor/">
-    <img src="https://github.com/th3unkn0n/extra/blob/master/.img/ig.png" width="40" height="40">
-</p>
