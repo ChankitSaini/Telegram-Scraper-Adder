@@ -5,10 +5,10 @@
 <p align="center"><img src="https://img.shields.io/badge/Version-1.01-brightgreen"></p>
 <p align="center">
   <a href="https://github.com/ChankitSaini">
-    <img src="https://img.shields.io/github/followers/th3unkn0n?label=Follow&style=social">
+    <img src="https://img.shields.io/github/followers/ChankitSaini?label=Follow&style=social">
   </a>
   <a href="https://github.com/ChankitSaini/Telegram-Scraper-Adder">
-    <img src="https://img.shields.io/github/stars/ChankitSaini/TeleGram-Group-Scraper?style=social">
+    <img src="https://img.shields.io/github/stars/ChankitSaini/Telegram-Scraper-Adder?style=social">
   </a>
 </p>
 <p align="center">
