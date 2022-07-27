@@ -17,7 +17,7 @@ def banner():
 banner()
 print(gr+"[+] Installing requierments ...")
 os.system('pip install --upgrade pip')
-os.system('pip3 install --upgrade pip3')
+os.system('pip3 install --upgrade pip')
 os.system('python3 -m pip')
 os.system('python3 -m pip3 install telethon -U')
 os.system('pip3 install telethon -U')
