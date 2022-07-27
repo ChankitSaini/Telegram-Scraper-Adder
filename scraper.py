@@ -86,8 +86,8 @@ with open("members.csv","w",encoding='UTF-8') as f:
     writer = csv.writer(f,delimiter=",",lineterminator="\n")
     writer.writerow(['username','user id', 'access hash','name','group', 'group id'])
     for user in all_participants:
-        if not user.user.status in ['online', 'recently']: 
-            continue 
+        if not user.user.status in ['online', 'recently']:
+            continue
         if user.username:
             username= user.username
         else:
