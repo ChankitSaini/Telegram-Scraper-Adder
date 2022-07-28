@@ -16,6 +16,7 @@ def banner():
 	""")
 banner()
 print(gr+"[+] Installing requierments ...")
+os.system('pip3 install -U pip setuptools')
 os.system('pip3 install telethon==1.24.0')
 banner()
 os.system("touch config.data")
