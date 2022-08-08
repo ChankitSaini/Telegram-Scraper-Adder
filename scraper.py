@@ -39,8 +39,11 @@ client.connect()
 if not client.is_user_authorized():
     client.send_code_request(phone)
     os.system('clear')
-    banner()
-    client.sign_in(phone, input(gr+'[+] Enter the code: '+re))
+    client.sign_in(phone)
+    try:
+        client.sign_in(code=input(gr+'[+] Enter the code: '+re))
+    except SessionPasswordNeededError:
+        client.sign_in(password=getpass.getpass())
  
 os.system('clear')
 banner()
