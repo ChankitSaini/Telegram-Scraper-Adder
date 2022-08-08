@@ -24,7 +24,7 @@ print (re+" ╩ └─┘┴─┘└─┘╚═╝  ╩ ╩─┴┘─┴┘�
 
 print (cy+"version : 1.01")
 print (cy+"Thanks to me")
-print (cy+"t.me/ChankitSaini")
+print (cy+"www.chankit.live")
 
 print (re+"NOTE :")
 print ("1. Telegram only allow to add 200 members in group by one user.")

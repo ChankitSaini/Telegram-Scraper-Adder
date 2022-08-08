@@ -12,7 +12,7 @@ def banner():
 	
 	           Version : 1.01
 	{re}Thanks to me
-	{cy}www.t.me/c/ChankitSaini
+	{cy}www.chankit.live
 	""")
 banner()
 print(gr+"[+] Installing requierments ...")

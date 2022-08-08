@@ -18,7 +18,7 @@ def banner():
 
               Version : 1.01
  {re}Thanks to me
-   {cy}www.t.me/ChankitSaini
+   {cy}www.chankit.live
         """)
 
 cpass = configparser.RawConfigParser()
