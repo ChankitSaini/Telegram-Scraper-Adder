@@ -42,10 +42,10 @@
 
 `$ python setup.py`
 
-* To Scrape members from group.
+* To scrap members from group.
 
 `$ python scraper.py`
 
-* Add Scraped members to your group. 
+* Add Scraped members to your group.
 
 `$ python adder.py`
