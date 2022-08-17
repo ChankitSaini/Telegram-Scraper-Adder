@@ -1,10 +1,16 @@
-from telethon.sync import TelegramClient
-from telethon.tl.functions.messages import GetDialogsRequest
-from telethon.tl.types import InputPeerEmpty
 import os, sys
 import configparser
 import csv
 import time
+from telethon.sync import TelegramClient
+from telethon.tl.functions.messages import GetDialogsRequest
+from telethon.tl.types import (
+    InputPeerEmpty,
+    UserStatusLastWeek,
+    UserStatusOnline,
+    UserStatusRecently,
+)
+from datetime import date, datetime
 
 re="\033[1;31m"
 gr="\033[1;32m"
@@ -52,13 +58,15 @@ last_date = None
 chunk_size = 200
 groups=[]
  
-result = client(GetDialogsRequest(
-             offset_date=last_date,
-             offset_id=0,
-             offset_peer=InputPeerEmpty(),
-             limit=chunk_size,
-             hash = 0
-         ))
+result = client(
+    GetDialogsRequest(
+        offset_date=last_date,
+        offset_id=0,
+        offset_peer=InputPeerEmpty(),
+        limit=chunk_size,
+        hash=0,
+    )
+)
 chats.extend(result.chats)
  
 for chat in chats:
@@ -87,7 +95,8 @@ while(1):
     print(gr+'[+] Fetching Members...')
     time.sleep(1)
     all_participants = []
-    all_participants = client.get_participants(target_group, aggressive=True)
+    all_participants = client.get_participants(target_group, aggressive=True, limit=5000)
+    print(all_participants)
 
     print(gr+'[+] Saving In file...')
     time.sleep(1)
@@ -99,22 +108,45 @@ while(1):
     if('members.csv' in os.listdir()):
         with open("members.csv","a",encoding='UTF-8') as f:
             writer = csv.writer(f,delimiter=",",lineterminator="\n")
-            writer.writerow(['username','user id', 'access hash','name','group', 'group id'])
+            writer.writerow(
+                ['username', 'user id', 'access hash', 'name', 'group', 'group id', 'last seen']
+                )
             for user in all_participants:
-                if not user.user.status in ['online', 'recently']:
+                accept = True
+                try:
+                    lastDate = user.status.was_online
+                    num_months = (datetime.now().year - lastDate.year) * 12 + (
+                        datetime.now().month - lastDate.month
+                    )
+                    if num_months > 0.5:
+                        accept = False
+                except:
                     continue
-                if user.username:
-                    username= user.username
-                else:
-                    username= ""
-                if user.first_name:
-                    first_name= user.first_name
-                else:
-                    first_name= ""
-                if user.last_name:
-                    last_name= user.last_name
-                else:
-                    last_name= ""
-                name= (first_name + ' ' + last_name).strip()
-                writer.writerow([username,user.id,user.access_hash,name,target_group.title, target_group.id])
+                if not user.status == UserStatusRecently():
+                    accept = False
+                if accept:
+                    if user.username:
+                        username= user.username
+                    else:
+                        username= ""
+                    if user.first_name:
+                        first_name= user.first_name
+                    else:
+                        first_name= ""
+                    if user.last_name:
+                        last_name= user.last_name
+                    else:
+                        last_name= ""
+                    name= (first_name + ' ' + last_name).strip()
+                    writer.writerow(
+                        [
+                            username,
+                            user.id,
+                            user.access_hash,
+                            name,
+                            target_group.title,
+                            target_group.id,
+                            user.status,
+                        ]
+                    )
         print(gr+'[+] Members scraped successfully. Join @NeuroticAssociation on Telegram')
