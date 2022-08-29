@@ -1,11 +1,3 @@
-import getpass
-from telethon.sync import TelegramClient
-from telethon.sessions import StringSession
-from telethon.errors import SessionPasswordNeededError
-from telethon.tl.functions.messages import GetDialogsRequest
-from telethon.tl.types import InputPeerEmpty, InputPeerChannel, InputPeerUser
-from telethon.errors.rpcerrorlist import PeerFloodError, UserPrivacyRestrictedError
-from telethon.tl.functions.channels import InviteToChannelRequest
 import configparser
 import os
 import sys
@@ -14,17 +6,27 @@ import traceback
 import time
 import random
 
+from telethon.sync import TelegramClient
+from telethon.tl.functions.messages import GetDialogsRequest
+from telethon.tl.types import InputPeerEmpty, InputPeerChannel, InputPeerUser
+from telethon.errors.rpcerrorlist import PeerFloodError, UserPrivacyRestrictedError
+from telethon.tl.functions.channels import InviteToChannelRequest
+
 re="\033[1;31m"
 gr="\033[1;32m"
 cy="\033[1;36m"
-
-print (re+"╔╦╗┌─┐┬  ┌─┐╔═╗  ╔═╗┌┬┐┌┬┐┌─┐┬─┐")
-print (gr+" ║ ├┤ │  ├┤ ║ ╦  ╠═╣ ││ ││├┤ ├┬┘")
-print (re+" ╩ └─┘┴─┘└─┘╚═╝  ╩ ╩─┴┘─┴┘└─┘┴└─")
+def banner():
+    os.system("clear")
+    print(f"""
+    {re}╔╦╗┌─┐┬  ┌─┐╔═╗  ╔═╗┌┬┐┌┬┐┌─┐┬─┐
+    {gr} ║ ├┤ │  ├┤ ║ ╦  ╠═╣ ││ ││├┤ ├┬┘
+    {re} ╩ └─┘┴─┘└─┘╚═╝  ╩ ╩─┴┘─┴┘└─┘┴└─
+            
+    """)
 
 print (cy+"version : 1.01")
 print (cy+"Thanks to me")
-print (cy+"www.chankit.live")
+print (cy+"t.me/ChankitSaini")
 
 print (re+"NOTE :")
 print ("1. Telegram only allow to add 200 members in group by one user.")
@@ -43,6 +45,7 @@ try:
     client = TelegramClient(phone, api_id, api_hash)
 except KeyError:
     os.system('clear')
+    banner()
     print(re+"[!] run python setup.py first !!\n")
     sys.exit(1)
 
@@ -50,11 +53,8 @@ client.connect()
 if not client.is_user_authorized():
     client.send_code_request(phone)
     os.system('clear')
-    client.sign_in(phone)
-    try:
-        client.sign_in(code=input(gr+'[+] Enter the code: '+re))
-    except SessionPasswordNeededError:
-        client.sign_in(password=getpass.getpass())
+    banner()
+    client.sign_in(phone, input(gr+'[+] Enter the code: '+re))
 
 users = []
 with open(r"members.csv", encoding='UTF-8') as f:  #Enter your file name
